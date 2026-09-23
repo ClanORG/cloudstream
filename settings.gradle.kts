@@ -1,21 +1,23 @@
-// https://developer.android.com/build#settings-file
 pluginManagement {
     repositories {
-        gradlePluginPortal()
-        google()
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
         mavenCentral()
+        gradlePluginPortal()
     }
 }
-
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
-        mavenLocal()
-        maven("https://jitpack.io")
     }
 }
 
 rootProject.name = "CloudStream"
-include(":app", ":shared", ":library", ":docs", ":desktopApp")
+include(":app")
